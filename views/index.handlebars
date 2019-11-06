@@ -1,38 +1,48 @@
-<h1>Cats!</h1>
-
-<h2>Cats that are not sleepy!</h2>
-
-<ul>
-  {{#each cats}}
-    {{#unless sleepy}}
-      {{> cats/cat-block sleep=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Cats that are sleepy!</h2>
-
-<ul>
-  {{#each cats}}
-    {{#if sleepy}}
-      {{> cats/cat-block sleep=false}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a Cat</h2>
+<h1>Burger Time</h1>
+<h2>Add a Burger</h2>
 <form class="create-form">
 
   <div class="form-group">
-    <label for="ca">Cat Name:</label>
-    <input type="text" id="ca" name="name">
-  </div>
+    <label for="burg"><strong>Burger:</strong></label>
+    <input type="text" id="burg" name="burger_name" size="40px">
+  </div><br>
 
   <div class="form-group">
-    <label for="sleepy">Sleepy?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-    <input type="radio" name="sleepy" value="0"> Awake
+    <label for="devoured">
+      <strong>Devoured?</strong>
+    </label><br><br>
+
+    <input type="radio" name="devoured" value="0" checked>Needs to be devoured!
+    <br>
+    <input type="radio" name="devoured" value="1">Devoured!
   </div>
 
-  <button type="submit">Add Cat</button>
+  <button type="submit">Add Burger</button>
 </form>
+</div>
+<hr>
+<h2>Burgers!</h2>
+
+<h2>Burgers waiting to be devoured</h2>
+
+<ul>
+  {{#each burgers}}
+  {{#unless devoured}}
+  <p>{{id}}. {{burger_name}}
+    <span><button class="change-devour" data-id="{{id}}" data-newdevour=true>
+        {{#if devoured}}devoured!{{else}}devour!{{/if}}
+      </button></span>
+  </p>
+  {{/unless}}
+  {{/each}}
+</ul>
+<hr>
+<h2>Devoured Burgers</h2>
+
+<ul>
+  {{#each burgers}}
+  {{#if devoured}}
+  <p>{{id}}. {{burger_name}}</p>
+  {{/if}}
+  {{/each}}
+</ul>
