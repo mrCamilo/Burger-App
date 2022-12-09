@@ -19,7 +19,7 @@
   "homepage": "https://github.com/jinana3/Eat-Da-Burger#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "express-handlebars": "^3.0.0",
     "mysql": "^2.15.0"
   }
